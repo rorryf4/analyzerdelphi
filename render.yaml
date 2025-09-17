@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: delphi-analyzer
+    env: node
+    plan: free
+    region: virginia
+    buildCommand: "npm ci && npm run build"
+    startCommand: "npm start"
+    autoDeploy: true
+    healthCheckPath: "/healthz"
+    runtime: "node"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # - key: SOME_API_KEY
+      #   sync: false
